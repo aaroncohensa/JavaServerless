@@ -18,7 +18,7 @@ This iteration of the project consists of two previous iterations combined, thes
 
 This iteration of the project will create a cluster of ZooKeeperPeerServers that provide a service which allows clients to submit Java source code for “serverless” execution. The cluster will elect a leader, and the elected leader will coordinate cluster activity in order to fulfill client requests.
 
-The cluster of nodes will use the Master-Worker architecture. The server that wins the ZooKeeper election to be the leader will function as the master, and the other servers will function as workers. The leader/master is the only server that:
+The cluster of nodes will use the Master-Worker architecture. The server that wins the ZooKeeper election to be the leader will function as the master, and the other servers will function as workers. The leader/master assigns tasks to the workers on a round-robin basis.  The leader/master is the only server that:
 - accepts requests from clients
 - sends replies to clients
 - assigns client requests to worker nodes that can do the work necessary to fulfill the requests.

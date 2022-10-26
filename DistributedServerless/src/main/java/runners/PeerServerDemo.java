@@ -11,8 +11,8 @@ import java.util.Map;
 import java.util.concurrent.LinkedBlockingQueue;
 
 
-public class Stage3PeerServerDemo {
-    private String validClass = "package edu.yu.cs.fall2019.com3800.stage1;\n\npublic class HelloWorld\n{\n    public String run()\n    {\n        return \"Hello world!\";\n    }\n}\n";
+public class PeerServerDemo {
+    private String validClass = "public class HelloWorld\n{\n    public String run()\n    {\n        return \"Hello world!\";\n    }\n}\n";
 
     private LinkedBlockingQueue<Message> outgoingMessages;
     private LinkedBlockingQueue<Message> incomingMessages;
@@ -23,7 +23,7 @@ public class Stage3PeerServerDemo {
     private InetSocketAddress myAddress = new InetSocketAddress("localhost", this.myPort);
     private ArrayList<ZooKeeperPeerServer> servers;
 
-    public Stage3PeerServerDemo() throws Exception {
+    public PeerServerDemo() throws Exception {
         //step 1: create sender & sending queue
         this.outgoingMessages = new LinkedBlockingQueue<>();
         UDPMessageSender sender = new UDPMessageSender(this.outgoingMessages, 8080);
@@ -114,6 +114,6 @@ public class Stage3PeerServerDemo {
     }
 
     public static void main(String[] args) throws Exception {
-        new Stage3PeerServerDemo();
+        new PeerServerDemo();
     }
 }
